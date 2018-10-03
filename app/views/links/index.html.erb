@@ -1,8 +1,9 @@
-<p id="notice"><%= notice %></p>
+<!-- <p id="notice"><%= notice %></p> -->
+ 
 
 <h1>Links</h1>
 
-<table>
+<!-- <table>
   <thead>
     <tr>
       <th>Name</th>
@@ -11,19 +12,24 @@
     </tr>
   </thead>
 
-  <tbody>
+  <tbody> -->
     <% @links.each do |link| %>
-      <tr>
+      <!-- <tr>
         <td><%= link.name %></td>
         <td><%= link.url %></td>
         <td><%= link_to 'Show', link %></td>
         <td><%= link_to 'Edit', edit_link_path(link) %></td>
         <td><%= link_to 'Destroy', link, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      </tr> -->
+      <!-- <ul>
+        <li><%= link.name %></li>
+        <li><%= link_to 'Visit link', link.url %></li>
+      </ul> -->
+      <h2><%=link_to "#{link.name}", link %></h2>
+      <p><%= link_to "#{link.url}", link.url,target: :_blank %></p> <br>
+
     <% end %>
-  </tbody>
+ <!--  </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Link', new_link_path %>
+<br> -->

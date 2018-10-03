@@ -1,8 +1,7 @@
-<p id="notice"><%= notice %></p>
 
 <p>
   <strong>Name:</strong>
-  <%= @link.name %>
+  <big><b> <%= @link.name %></b></big>
 </p>
 
 <p>
@@ -11,4 +10,6 @@
 </p>
 
 <%= link_to 'Edit', edit_link_path(@link) %> |
-<%= link_to 'Back', links_path %>
+<%= link_to 'Back', links_path %> |
+<%= link_to 'Delete', @link, :method => :delete, data: {confirm: "Are you sure?"} %>
+
