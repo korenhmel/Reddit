@@ -6,32 +6,32 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+
+   
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+
+ <!-- Plugin CSS -->
+   <link href="https://blackrockdigital.github.io/startbootstrap-freelancer/css/freelancer.min.css" rel="stylesheet" type="text/css" >
+
+   <!-- Custom styles for this template -->
+    <link href= "https://blackrockdigital.github.io/startbootstrap-freelancer/css/freelancer.min.css" rel="stylesheet" >
+
   </head>
 
   <body>
-  <p id="notice"><%= notice %></p>
- <!--  <% if notice %>
-  <p class="alert alert-success"><%= notice %></p>
-<% end %>
-<% if alert %>
-  <p class="alert alert-danger"><%= alert %></p>
-<% end %> -->
+  <p style="color:green;" id="notice" ><%= notice %></p>
+ <%# if notice %>
+ <!--  <p class="alert alert-success"><%#= notice %></p> -->
+<%# end %>
+<%# if alert %>
+ <!--  <p class="alert alert-danger"><%#= alert %></p> -->
+<%# end %>
   
-  <% if user_signed_in? %>
-  <ul>
-    <li><%= link_to 'New Link', new_link_path %></li>
-    <li><%= link_to 'Sign Out',  destroy_user_session_path, :method => :delete  %>
-    </li>
-    <li><%= link_to 'Edit User Registration', edit_user_registration_path %></li>
-    </ul>
-   
-<% else %>
-<ul>
-  <li><%= link_to 'Sign in',new_user_session_path %></li>
-  <li><%= link_to 'Sign up',new_user_registration_path %></li>
-</ul>
-
-<% end %>
+  
+<%= render 'shared/header' %>
     <%= yield %>
+
   </body>
 </html>
