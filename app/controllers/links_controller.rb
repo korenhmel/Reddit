@@ -1,5 +1,5 @@
 class LinksController < ApplicationController
-  before_action :set_link, only: [:show, :edit, :update, :destroy]
+  before_action :set_link, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
   before_action :authenticate_user!, :except => [:index, :show]
   # GET /links
   # GET /links.json
@@ -10,6 +10,13 @@ class LinksController < ApplicationController
   # GET /links/1
   # GET /links/1.json
   def show
+    # num = 0
+    # @all_users = User.all
+    # @all_users.all.each do 
+    #   num += 1
+    # end
+    # @user_total = num
+    @vote = params[:option]
   end
 
   # GET /links/new
@@ -60,6 +67,16 @@ class LinksController < ApplicationController
       format.html { redirect_to links_url, notice: 'Link was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def upvote
+    @link.upvote_from current_user
+    redirect_back(fallback_location: root_path)
+  end
+
+  def downvote
+    @link.downvote_from current_user
+     redirect_back(fallback_location: root_path)
   end
 
   private
