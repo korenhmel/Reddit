@@ -1,3 +1,5 @@
+<p>Rating:<i class="far fa-star"></i><i class="far fa-star"></i></p>
+<p><%= @user_total %></p>
 
 <div class="page-header">
  	<h1><a href="<%= @link.url %>"><%= @link.name %></a><br><small>Submitted by <%= @link.user.email %></small></h1>
@@ -8,5 +10,56 @@
  <% if @link.user == current_user %>
  
  	<%= link_to "Edit", edit_link_path(@link), class: "btn btn-default btn-sm" %>
- 	<%= link_to "Destroy", @link, method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-default btn-sm" %>
+ 	<%= link_to "Destroy", @link, method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-default btn-sm " %>
 <%end %>
+</div>
+
+<div class="btn-group pull-right">
+<%= link_to  like_link_path(@link), method: :put, class: "btn btn-default btn-sm " do %>
+<i class="fas fa-thumbs-up"></i>
+   <!--  upvote -->
+   
+    <%= @link.get_upvotes.size %>
+    <% end %>
+<%= link_to dislike_link_path(@link), method: :put, class: "btn btn-default btn-sm" do %>
+<i class="fas fa-thumbs-down"></i>
+    <!-- downvote --> 
+    <%= @link.get_downvotes.size %>
+    <% end %>
+</div>
+<br>
+<div class="stars pull-right">
+<i class="fas fa-star" style="width:18px; margin:0 auto; color: #F5B70F;"></i>
+<i class="fas fa-star" style="width:18px; margin:0 auto; color: #F5B70F;"></i>
+<i class="fas fa-star-half-alt" aria-hidden="true" style="width:18px; margin:0 auto; color: #F5B70F;"></i>
+<i class="far fa-star" style="width:18px; margin:0 auto; color: #F5B70F;"></i>
+<i class="far fa-star" style="width:18px; margin:0 auto; color: #F5B70F;"></i>
+</div>
+<br>
+
+<%#= form_tag do %>
+<%# 1.upto(5) do |i| %>
+  <%#= radio_button_tag :name, i %>
+<%# end %>
+<%# end %>
+<!-- Material inline  -->
+<div class="form-check form-check-inline pull-right">
+<%= form_tag @link, method: :get do %>
+    <%= radio_button_tag :option, "1" %>
+    <%= radio_button_tag :option, "2" %>
+    <%= radio_button_tag :option, "3" %>
+    <%= radio_button_tag :option, "4" %>
+    <%= radio_button_tag :option, "5" %>
+    <br>
+  <%= submit_tag "Sight Vote", name: nil %>
+<% end %>
+</div>
+<br>
+<br>
+<br>
+
+  <div class= "pull-right">
+  <% if @vote != nil %>
+<p>Your site rate is: <%= @vote %> points</p>
+   <% end %>
+</div>
