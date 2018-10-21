@@ -56,3 +56,5 @@ gem "devise"
 # Add bootstrap
 gem 'bootstrap-sass', '~> 3.3.7'
 gem 'jquery-rails'
+# add votable 
+gem 'acts_as_votable', '~> 0.11.1'
