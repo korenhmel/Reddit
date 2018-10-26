@@ -63,3 +63,24 @@
 <p>Your site rate is: <%= @vote %> points</p>
    <% end %>
 </div>
+<br>
+<br>
+<div id="comments">
+<%= render partial: "comments/comment", collection: @link.comments, as: :comment %>
+ <!-- we can use a short form as: -->
+<!--  <%= render :partial => @link.comments %> -->
+</div>
+
+
+<h3 class="comments_title" ><%= @link.comments.count %> comments</h3>
+<%= simple_form_for [@link, @link.comments.new] do |f| %>
+  <%= f.input :body, label: 'Your comments' %>
+  <%= f.button :submit, class: "btn-primary" %>
+<% end %>
+
+
+
+
+
+
+
