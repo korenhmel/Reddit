@@ -2,7 +2,7 @@
 <p><%= @user_total %></p>
 
 <div class="page-header">
- 	<h1><a href="<%= @link.url %>"><%= @link.name %></a><br><small>Submitted by <%= @link.user.email %></small></h1>
+ 	<h1><a href="<%= @link.url %>"><%= @link.name %></a><br><small>Submitted by <%= @link.user.name %></small></h1>
  </div>
  <div class="btn-group">
  	<%= link_to 'Visit URL', @link.url, class: " btn btn-primary btn-sm ", target: :_blank %>
